@@ -47,7 +47,7 @@ def load_from_file():
 
 def load_from_api():
 	results = []
-	max_records = 1000
+	max_records = 15000
 	record_count = 100; offset=0
 	api_key = read_credentials()
 	count, search = get_search_query()	
