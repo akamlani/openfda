@@ -42,3 +42,4 @@ Focused on Elderly Patients that have reported serious conditions with hypertens
 ### Usage
 * File Access: ipython test_vectors.py
 * Restful OpenFDA API: ipython test_vectors.py -- -f 0
+* Note that Github prevents large files to be uploaded, so a reference small data sample is provided, more data samples can be retrieved via Restful API.
