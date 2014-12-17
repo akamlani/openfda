@@ -77,6 +77,7 @@ if __name__ == '__main__':
 	labels = list( set(labels) - set(['Bias Unit']) )
 	hidden_nodes = [item for item in mappings.columns] 
 	hidden_nodes = hidden_nodes[1:]
+
 	n_top_drugs = 2
 	hidden_names_i = []
 	for h_node in hidden_nodes:
@@ -99,7 +100,8 @@ if __name__ == '__main__':
 				reactions_id_m = list(report_id_m['reactionmeddrapt'])
 				hidden_names_i.append((h_node, top_drug_idices, name, reactions_id_m, m_reaction_l))
 				
-	
+
+
 	# select top most occurences of Patient Drug Contributions
 	# this is foundation from which we select other infomation critieria
 	id_l = []
@@ -108,6 +110,7 @@ if __name__ == '__main__':
 	plt.bar(range(len(id_freq)), id_freq.values)
 	plt.xticks(range(len(id_freq)), list(str(id) for id in id_freq.index), rotation=90)
 	plt.title('Patient Frequency over Multiple Drugs')
+	plt.tight_layout()
 	plt.savefig('../plots/' + 'top_patient_distribution' + '.png')    
 
 	# of those drugs taken, and in hidden nodes, what top patients took these drugs
@@ -173,7 +176,7 @@ if __name__ == '__main__':
 	alg.plot_heat_map(filtered_dr_v, le_l[2].inverse_transform(mrl), le_l[1].inverse_transform(mdl), 'Drugs vs Reactions Taken', 'drug_reaction_all')
 	# heat map plots from neural network (drugs taken (visible nodes) vs hidden Nodes)
 	ann = mappings.loc[le_l[1].inverse_transform(mdl)]
-	ann = ann[df['hidden node']]
+	ann = ann[df['hidden node'].unique()]
 	alg.plot_heat_map(ann, ann.columns, ann.index, 'Visible (Drug) vs Hidden (Mapped) States', 'drug_hidden_rbm')
 	# heat map plots from neural network (cosine similarity - based on drugs taken by samples)
 	drug_cos = dists.loc[le_l[1].inverse_transform(mdl)]
@@ -186,7 +189,7 @@ if __name__ == '__main__':
 
 	# overall top drugs with highest correlation with one another (based on output of ann)
 	dists = dists.sort(columns=labels, ascending=False)
-	top_corr_drugs = dists[:10].index
+	top_corr_drugs = dists[:11].index
 	top_drug_labels = [item for item in top_corr_drugs] 
 	top_drug_labels = list( set(top_drug_labels) - set(['Bias Unit']) )
 	top_drug_idices = le_l[1].transform(top_drug_labels)
