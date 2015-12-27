@@ -13,17 +13,17 @@ Focused on Elderly Patients that have reported serious conditions with hypertens
 * serious:1
 * patient.patientonsetage:[65+TO+99]
 * patient.drug.drugindication:hypertension
-    
+
 ### Datasets
 * [openFDA](https://open.fda.gov/)
-    * Adverse Events 
+    * Adverse Events
     * Recalls (Certain Recalls of FDA Regulated Products)
     * Labeling
 
 ### ML Aspects
 * Data Munging, Scaling
-* RBM (Restricted Boltzmann Machine) -  Neural Networks (Single Layer) 
-* Cosine Similarity 
+* RBM (Restricted Boltzmann Machine) -  Neural Networks (Single Layer)
+* Cosine Similarity
 
 ### Resources
 #### Neural Networks
@@ -35,6 +35,8 @@ Focused on Elderly Patients that have reported serious conditions with hypertens
 
 #### Reference Sites
 * [ResearchAE](http://www.researchae.com/)
+* [AdverseEvents](http://www.adverseevents.com/)
+* [IODINE](http://www.iodine.com/)
 
 ### External Source
 * [RBM](https://github.com/echen/restricted-boltzmann-machines)
